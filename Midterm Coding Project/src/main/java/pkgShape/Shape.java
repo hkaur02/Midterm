@@ -1,5 +1,6 @@
 package pkgShape;
 
 public abstract sealed class Shape permits Circle{
-public abstract double area();
+	protected abstract double area();
+	public Shape() {}
 }

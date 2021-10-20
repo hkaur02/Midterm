@@ -1,10 +1,12 @@
 package pkgShape;
 
-public sealed class Ellipse extends Circle permits Ellipsoid {
+public sealed class Ellipse extends Circle implements Area permits Ellipsoid {
 	private double MinorRadius;
 
-	public Ellipse(double MinorRadius, double Radius) {
-		super(Radius);
+	public Ellipse(double MinorRadius, double Radius1) {
+		super(Radius1);
+		this.MinorRadius = MinorRadius;
+
 		
 	}
 	
@@ -12,11 +14,16 @@ public sealed class Ellipse extends Circle permits Ellipsoid {
 		return MinorRadius;
 	}
 
-	public void setMinorRadius(double minorRadius) {
+	public void setMinorRadius(double minorRadius) throws Exception {
 		MinorRadius = minorRadius;
+		if(MinorRadius<=0)
+			throw new Exception("Radius is less than 0");
 	}
 	public boolean isCircle() {
-		return false;
+		if (super.getRadius()==MinorRadius)
+			return true;
+		else
+			return false;
 	}
 	public double area(double Radius,double minorRadius) {
 		double area = Math.PI * MinorRadius * Radius;
