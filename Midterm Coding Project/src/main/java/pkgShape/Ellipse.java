@@ -21,12 +21,13 @@ public sealed class Ellipse extends Circle implements Area permits Ellipsoid {
 	}
 	public boolean isCircle() {
 		if (super.getRadius()==MinorRadius)
-			return true;
+			return true; 
 		else
 			return false;
 	}
-	public double area(double Radius,double minorRadius) {
-		double area = Math.PI * MinorRadius * Radius;
+	public double area() {
+		
+		double area = Math.PI * MinorRadius * super.getRadius();
 		return area;
 		
 	}
